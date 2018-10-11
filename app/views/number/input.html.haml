@@ -1,3 +1,6 @@
-= form_for 'test', html: { id: :form }, remote: true do |f|
-  = f.number_field :number, value: 0
-  = f.submit id: :submit, style: 'display: none'
+.left
+  = render 'form', name: :left
+
+.right
+  = render 'form', name: :right
+

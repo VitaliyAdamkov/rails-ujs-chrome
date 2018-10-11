@@ -3,12 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 NumberChange = (event) ->
-  console.log @.value
-  # $(@).attr('readonly', true)
-  $('#submit').click()
+  console.log $(@).attr('id') + ' - ' + @.value
+  $(@).attr('readonly', true) if $(@).attr('id') == 'left_number'
+  $(@).next().click()
   false
 
 $(document).on 'turbolinks:load', ->
-  console.log 'test'
+  console.log 'loaded'
   # $('#test_number').change NumberChange
-  $('#test_number').bind('input', NumberChange)
+  $('input[type="number"]').bind('input', NumberChange)

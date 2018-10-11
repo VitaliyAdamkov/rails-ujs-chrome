@@ -1,5 +1,9 @@
-var text = 'update - ' + "<%= params[:test][:number] %>";
+var divClass = "<%= params[:left].present? ? 'left' : 'right' %>";
+var value = "<%= (params[:left] || params[:right])[:number] %>";
+var text = 'update - ' + divClass + ' - ' + value;
 console.log(text);
-$('#form').append('<p>' + text + '</p>');
-$('#test_number').val("<%= params[:test][:number] %>");
-// $('#test_number').attr('readonly', false);
+var form = $('div.' + divClass).find('form');
+form.append('<p>' + text + '</p>');
+var element = form.find('input[type="number"]');
+element.val(value);
+if (divClass == 'left') { element.attr('readonly', false); }
