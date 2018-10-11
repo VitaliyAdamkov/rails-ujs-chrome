@@ -1,24 +1,29 @@
 require 'rails_helper'
 
-describe 'chrome fail' do
-  it 'fails in chrome' do
+describe 'input type number serial increment click' do
+  def click_it page
     visit '/input'
-    %w[left_number right_number].each do |id|
-      element = find("##{id}")
-      element.click_at()
+    %w[left right].each do |klass|
+      id = "#{klass}_number"
+      element = page.driver.browser.find_element id: id
       5.times do
-        page.driver.browser.action.move_to(element.native, 145, 5)
-                                  .click
-                                  .click
-                                  .click
-                                  .click
-                                  .click
-                                  .perform
+        state = page.driver.browser.action.move_to(element, 145, 5)
+        10.times { state = state.click }
+        state.perform
         sleep 0.5
       end
-
-      page.save_and_open_screenshot("#{id}.png")
+      expect(find("div.#{klass}").find('form')).to have_content('5 - 5') if klass == 'left'
+      # page.save_and_open_screenshot("#{id}.png")
     end
-    sleep 5
+  end
+
+  it 'in chrome' do
+    Capybara.default_driver = :selenium_chrome
+    click_it page
+  end
+
+  it 'in firefox' do
+    Capybara.default_driver = :selenium
+    click_it page
   end
 end
