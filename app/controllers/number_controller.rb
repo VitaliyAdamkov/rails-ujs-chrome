@@ -5,5 +5,6 @@ class NumberController < ApplicationController
   end
 
   def update
+    sleep 0.5
   end
 end

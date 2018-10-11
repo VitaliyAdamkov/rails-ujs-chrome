@@ -4,7 +4,7 @@
 
 NumberChange = (event) ->
   console.log @.value
-  $(@).attr('readonly', true)
+  # $(@).attr('readonly', true)
   $('#submit').click()
   false
 

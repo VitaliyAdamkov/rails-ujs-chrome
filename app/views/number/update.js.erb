@@ -1,2 +1,5 @@
-console.log('update - ' + "<%= params[:test][:number] %>");
-$('#test_number').attr('readonly', false);
+var text = 'update - ' + "<%= params[:test][:number] %>";
+console.log(text);
+$('#form').append('<p>' + text + '</p>');
+$('#test_number').val("<%= params[:test][:number] %>");
+// $('#test_number').attr('readonly', false);
