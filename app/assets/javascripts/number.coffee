@@ -10,5 +10,5 @@ NumberChange = (event) ->
 
 $(document).on 'turbolinks:load', ->
   console.log 'test'
-  $('#test_number').change NumberChange
-  # $('#test_number').bind('input', NumberChange)
+  # $('#test_number').change NumberChange
+  $('#test_number').bind('input', NumberChange)
