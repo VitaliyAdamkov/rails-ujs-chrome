@@ -12,3 +12,8 @@ $(document).on 'turbolinks:load', ->
   console.log 'loaded'
   # $('#test_number').change NumberChange
   $('input[type="number"]').bind('input', NumberChange)
+
+# $ ->
+#   console.log 'loaded'
+#   # $('#test_number').change NumberChange
+#   $('input[type="number"]').bind('input', NumberChange)
