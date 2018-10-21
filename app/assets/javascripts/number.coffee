@@ -4,8 +4,9 @@
 
 NumberChange = (event) ->
   console.log $(@).attr('id') + ' - ' + @.value
-  $(@).attr('readonly', true) if $(@).attr('id') == 'left_number'
+  # $(@.form).children('fieldset')[0].attr('readonly', true) if $(@).attr('id') == 'left_number'
   $(@).next().click()
+  $(@.form).children('fieldset').attr('disabled', true) if $(@).attr('id') == 'left_number'
   false
 
 $(document).on 'turbolinks:load', ->

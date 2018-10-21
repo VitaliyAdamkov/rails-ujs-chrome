@@ -6,4 +6,5 @@ var element = form.find('input[type="number"]');
 var text = element.val() + ' - ' + value;
 console.log(divClass + ' - ' + text);
 form.append('<p>' + text + '</p>');
-if (divClass == 'left') { element.attr('readonly', false); }
+// if (divClass == 'left') { element.attr('readonly', false); }
+if (divClass == 'left') { $(element[0].form).children('fieldset').attr('disabled', false); }
