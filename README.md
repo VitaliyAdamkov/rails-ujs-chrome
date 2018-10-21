@@ -2,7 +2,7 @@
 
 * rails s
 
-* open localhost:3000 with Google Chrome
+* open localhost:3000/input with Google Chrome
 
 * click up
 
