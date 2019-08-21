@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'input type number serial increment click' do
+describe 'input type number serial increment click', js: true do
   def click_it page
     visit '/input'
     %w[left right].each do |klass|
